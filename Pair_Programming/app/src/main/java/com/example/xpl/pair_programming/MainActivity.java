@@ -278,6 +278,7 @@ public class MainActivity extends AppCompatActivity implements CheckBox.OnChecke
 
     //构建随机式，成功则返回1,失败则返回0
     public int buildItems(int sum) {
+        if(sum<=0)return 0;
         items = new String[sum];
         itemLen = new int[sum];
         leftbra = new boolean[sum];
@@ -317,6 +318,8 @@ public class MainActivity extends AppCompatActivity implements CheckBox.OnChecke
         } catch (Exception e) {
             return 1;
         } finally {
+            if(max<=0||sum<=0)
+                return 1;
         }
         if (sum >= 100000) {
             return 2;
