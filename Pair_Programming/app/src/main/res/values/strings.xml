@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pair_Programming</string>
+    <string name="action_settings">Settings</string>
+    <string name="label">生成你的四则运算</string>>
+</resources>
