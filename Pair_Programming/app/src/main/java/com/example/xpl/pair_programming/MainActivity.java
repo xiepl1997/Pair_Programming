@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -375,6 +376,8 @@ public class MainActivity extends AppCompatActivity implements CheckBox.OnChecke
         if(result[position]==-1){
             str = items[position].substring(0, items[position].length()-1);
             result[position] = Calculator.conversion(str);
+            BigDecimal bigDecimal = new BigDecimal(result[position]);
+            result[position] = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
             items[position] += "  "+String.valueOf(result[position]);
             result[position] = -2;
             adapter.notifyDataSetChanged();
