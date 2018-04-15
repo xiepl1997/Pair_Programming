@@ -368,12 +368,13 @@ public class MainActivity extends AppCompatActivity implements CheckBox.OnChecke
     //listview点击监听，用于更新答案
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String str = items[position].substring(0, items[position].length()-1);
-        result[position] = Calculator.conversion(str);
-        if(result[position] != -1){
+        String str;
+        if(result[position]==-1){
+            str = items[position].substring(0, items[position].length()-1);
+            result[position] = Calculator.conversion(str);
             items[position] += "  "+String.valueOf(result[position]);
-            result[position] = -1;
+            result[position] = -2;
+            adapter.notifyDataSetChanged();
         }
-        adapter.notifyDataSetChanged();
     }
 }
